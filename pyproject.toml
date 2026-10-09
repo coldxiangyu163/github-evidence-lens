@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "github-evidence-lens"
+version = "0.1.0"
+description = "Skill-first, public GitHub evidence investigation without personal scores"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "GitHub Evidence Lens contributors"}]
+dependencies = []
+
+[project.scripts]
+github-evidence-lens = "github_evidence_lens.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["github_evidence_lens*"]
+
+[tool.setuptools.data-files]
+"share/github-evidence-lens/skills/github-evidence-lens" = ["skills/github-evidence-lens/SKILL.md"]
+"share/github-evidence-lens/skills/github-evidence-lens/references" = ["skills/github-evidence-lens/references/*"]

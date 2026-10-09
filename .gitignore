@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+build/
+dist/
+*.egg-info/
+artifacts/
+outputs/
+.env
+.DS_Store
+CODEX_GOAL_REVIEW.md
+IMPLEMENTATION_RESULT.md

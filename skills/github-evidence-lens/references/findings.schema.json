@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GitHub Evidence Lens agent findings v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "findings"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "claim",
+          "status",
+          "rationale",
+          "evidence_ids",
+          "counterevidence",
+          "limitations"
+        ],
+        "properties": {
+          "claim": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "supported",
+              "partial",
+              "contradicted",
+              "unknown"
+            ]
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence_ids": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "pattern": "^ev_[a-f0-9]{20}$"
+            }
+          },
+          "counterevidence": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "counterevidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^ev_[a-f0-9]{20}$"
+            }
+          },
+          "limitations": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}
